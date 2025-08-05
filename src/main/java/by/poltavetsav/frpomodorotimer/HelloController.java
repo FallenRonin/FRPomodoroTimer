@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import by.poltavetsav.frpomodorotimer.util.*;
+import javafx.scene.control.Slider;
 
 public class HelloController {
     @FXML
@@ -11,20 +12,18 @@ public class HelloController {
     @FXML
     private Button startTimerButton;
     @FXML
-    private Button relaxButton;
+    private Slider volumeSlider;
 
-    private static final int WORK_DURATION = 1500;
-    private static final int RELAX_DURATION = 300;
+    private static final int WORK_DURATION = 3;
+    private static final int RELAX_DURATION = 4;
+    private static boolean isRelaxing = false;
 
     @FXML
     protected void onStartTimerButtonClick() {
-        // 1500 секунд = 25 минут (для Pomodoro)
-        SingletonTimer.getInstance().start(WORK_DURATION, this::updateTimerUI, this::workTimerFinished);
-    }
-
-    @FXML
-    protected void onRelaxButtonClick() {
-        SingletonTimer.getInstance().start(RELAX_DURATION, this::updateTimerUI, this::relaxTimerFinished);
+        int duration = isRelaxing ? RELAX_DURATION : WORK_DURATION;
+        SingletonTimer.getInstance().start(duration, this::updateTimerUI, this::workTimerFinished);
+        isRelaxing = !isRelaxing;
+        startTimerButton.setVisible(false);
     }
 
     private void updateTimerUI() {
@@ -37,20 +36,8 @@ public class HelloController {
 
     private void workTimerFinished() {
         timerText.setText("00:00 - Time's up!");
-        playAlarm();
-        startTimerButton.setVisible(false);
-        relaxButton.setVisible(true);
-    }
-
-    private void relaxTimerFinished() {
-        timerText.setText("00:00 - Time's up!");
-        playAlarm();
-        relaxButton.setVisible(false);
-        startTimerButton.setVisible(true);
-    }
-
-    private void playAlarm() {
-        SoundPlayer.PlaySound("/sounds/EndAlarm.mp3");
+        SoundPlayer.PlaySound("/sounds/EndAlarm.mp3", volumeSlider.getValue() / 100);
+        startTimerButton.setText("Relax");
     }
 
     @FXML
