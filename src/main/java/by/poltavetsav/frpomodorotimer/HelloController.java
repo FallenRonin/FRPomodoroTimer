@@ -14,8 +14,8 @@ public class HelloController {
     @FXML
     private Slider volumeSlider;
 
-    private static final int WORK_DURATION = 3;
-    private static final int RELAX_DURATION = 4;
+    private static final int WORK_DURATION = 1500;
+    private static final int RELAX_DURATION = 300;
     private static boolean isRelaxing = false;
 
     @FXML
