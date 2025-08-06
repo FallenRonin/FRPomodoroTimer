@@ -8,7 +8,8 @@ import javafx.scene.control.Slider;
 
 import java.util.concurrent.TimeUnit;
 
-public class FormContoller {
+public class FormController {
+
     @FXML
     private Label timerText;
     @FXML
@@ -18,12 +19,17 @@ public class FormContoller {
     @FXML
     private Label timeoutsLabel;
 
+    private SoundPlayer soundPlayer;
     private static final int WORK_DURATION = (int) TimeUnit.MINUTES.toSeconds(25);
     private static final int RELAX_DURATION = (int) TimeUnit.MINUTES.toSeconds(5);
     private static final int LARGE_RELAX_DURATION = (int) TimeUnit.MINUTES.toSeconds(15);
     private static final int TIMEOUTS_BEFORE_LARGE_BREAK = 4;
     private boolean isRelaxing = false;
     private int timeoutCounter = 0;
+
+    public void setSoundPlayer(SoundPlayer soundPlayer) {
+        this.soundPlayer = soundPlayer;
+    }
 
     @FXML
     protected void onStartTimerButtonClick() {
@@ -46,7 +52,7 @@ public class FormContoller {
 
     private void onTimerFinished() {
         timerText.setText("00:00 - Time's up!");
-        SoundPlayer.PlaySound("/sounds/EndAlarm.mp3", volumeSlider.getValue() / 100);
+        soundPlayer.playSound("/sounds/EndAlarm.mp3", volumeSlider.getValue() / 100);
         startTimerButton.setText(isRelaxing ? "Work" : "Relax");
         startTimerButton.setVisible(true);
         timeoutCounter += isRelaxing ? 1 : 0;
