@@ -1,6 +1,7 @@
 package by.poltavetsav.frpomodorotimer.util;
 
 import javafx.application.Platform;
+
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -13,7 +14,8 @@ public class SingletonTimer {
     private Runnable onTickCallback;
     private Runnable onFinishCallback;
 
-    private SingletonTimer() {}
+    private SingletonTimer() {
+    }
 
     public static synchronized SingletonTimer getInstance() {
         if (instance == null) {
