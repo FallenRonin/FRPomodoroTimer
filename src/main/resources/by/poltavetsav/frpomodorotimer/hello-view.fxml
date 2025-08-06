@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="380.0" prefWidth="325.0" spacing="20.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="by.poltavetsav.frpomodorotimer.HelloController">
+<VBox alignment="CENTER" prefHeight="380.0" prefWidth="325.0" spacing="20.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="by.poltavetsav.frpomodorotimer.FormContoller">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
    <Pane prefHeight="767.0" prefWidth="638.0">
       <children>
       
-          <Label fx:id="timerText" layoutX="14.0" layoutY="134.0" text="Time left :">
+          <Label fx:id="timerText" layoutX="-3.0" layoutY="144.0" text="Time left :">
             <font>
                <Font size="36.0" />
             </font>
@@ -29,6 +29,11 @@
          <Label layoutX="233.0" layoutY="-6.0" text="Volume">
             <font>
                <Font size="18.0" />
+            </font>
+         </Label>
+         <Label fx:id="timeoutsLabel" layoutX="14.0" layoutY="14.0" text="Timeouts: 0">
+            <font>
+               <Font size="24.0" />
             </font>
          </Label>
       </children>
