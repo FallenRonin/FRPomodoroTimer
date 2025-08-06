@@ -8,19 +8,19 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="380.0" prefWidth="325.0" spacing="20.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="by.poltavetsav.frpomodorotimer.FormController">
+<VBox alignment="CENTER" prefHeight="199.0" prefWidth="325.0" spacing="20.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="by.poltavetsav.frpomodorotimer.FormController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-   <Pane prefHeight="767.0" prefWidth="638.0">
+   <Pane prefHeight="343.0" prefWidth="285.0">
       <children>
       
-          <Label fx:id="timerText" layoutX="-3.0" layoutY="144.0" text="Time left :">
+          <Label fx:id="timerText" layoutY="79.0">
             <font>
                <Font size="36.0" />
             </font>
          </Label>
-          <Button fx:id="startTimerButton" alignment="BOTTOM_CENTER" defaultButton="true" layoutX="81.0" layoutY="306.0" onAction="#onStartTimerButtonClick" text="Start Timer!">
+          <Button fx:id="startTimerButton" alignment="BOTTOM_CENTER" defaultButton="true" layoutX="81.0" layoutY="137.0" onAction="#onStartTimerButtonClick" text="Start Timer!">
             <font>
                <Font size="19.0" />
             </font>
